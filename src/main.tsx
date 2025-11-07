@@ -1,10 +1,10 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import RecyclingApp from './App';
-import './index.css'; // opcional, viene por defecto en Vite
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './App.css'
 
-createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RecyclingApp />
-  </React.StrictMode>
-);
+    <App />
+  </React.StrictMode>,
+)
