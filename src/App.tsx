@@ -71,7 +71,7 @@ const RecyclingApp = () => {
   const activeAlerts = alerts.filter(a => a.status === 'nuevo').length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-24">
+    <div className="min-h-screen bg-gray-50 pb-24">
       <MapModal 
         show={showMapModal}
         alert={selectedAlert}
@@ -91,74 +91,72 @@ const RecyclingApp = () => {
       />
       
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 shadow-lg">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <MapPin className="w-6 h-6" />
+      <div className="bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 text-white px-6 py-5 shadow-md">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <MapPin className="w-5 h-5" />
             <div>
-              <h1 className="text-2xl font-bold">MI CAMIÓN</h1>
-              <p className="text-sm text-green-100">Quilpué, Valparaíso</p>
+              <h1 className="text-xl font-bold tracking-tight">MI CAMIÓN</h1>
+              <p className="text-xs text-emerald-50 font-medium">Quilpué, Valparaíso</p>
             </div>
           </div>
-          <button className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
-            <User className="w-6 h-6" />
+          <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all">
+            <User className="w-5 h-5" />
           </button>
         </div>
       </div>
 
       {/* Content */}
-      <div className="px-4 py-6">
+      <div className="px-5 py-5">
         {activeTab === 'inicio' && (
-          <div>
+          <div className="space-y-5">
             {/* Header con branding */}
-            <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl p-6 mb-6 text-white shadow-lg">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+            <div className="gradient-primary rounded-[28px] p-6 text-white shadow-xl">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 bg-white/15 backdrop-blur-sm rounded-[20px] flex items-center justify-center flex-shrink-0">
                   <div className="text-3xl">♻️</div>
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-1">Reciclaje Inteligente</h2>
-                  <p className="text-green-100 text-sm">Cuida el planeta, recicla con inteligencia</p>
+                  <h2 className="text-2xl font-bold mb-1.5 tracking-tight">Reciclaje Inteligente</h2>
+                  <p className="text-emerald-50 text-sm font-medium">Cuida el planeta, recicla con inteligencia</p>
                 </div>
               </div>
             </div>
 
             {/* Estadísticas */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="bg-white rounded-2xl p-4 shadow-sm text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                  <MapPin className="w-6 h-6 text-green-600" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="modern-card text-center hover:scale-[1.02] transition-transform">
+                <div className="w-12 h-12 bg-emerald-50 rounded-[16px] flex items-center justify-center mx-auto mb-2.5">
+                  <MapPin className="w-6 h-6 text-emerald-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">{containers.length}</div>
-                <div className="text-xs text-gray-600">Contenedores cercanos</div>
+                <div className="text-2xl font-bold text-gray-900 mb-0.5">{containers.length}</div>
+                <div className="text-micro text-gray-600">Contenedores cercanos</div>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-sm text-center">
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-2">
+              <div className="modern-card text-center hover:scale-[1.02] transition-transform">
+                <div className="w-12 h-12 bg-emerald-50 rounded-[16px] flex items-center justify-center mx-auto mb-2.5">
                   <Package className="w-6 h-6 text-emerald-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">{guideCategories.length}</div>
-                <div className="text-xs text-gray-600">Materiales clasificados</div>
+                <div className="text-2xl font-bold text-gray-900 mb-0.5">{guideCategories.length}</div>
+                <div className="text-micro text-gray-600">Materiales clasificados</div>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-sm text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-2">
+              <div className="modern-card text-center hover:scale-[1.02] transition-transform">
+                <div className="w-12 h-12 bg-red-50 rounded-[16px] flex items-center justify-center mx-auto mb-2.5">
                   <Bell className="w-6 h-6 text-red-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">{activeAlerts}</div>
-                <div className="text-xs text-gray-600">Alertas activas</div>
+                <div className="text-2xl font-bold text-gray-900 mb-0.5">{activeAlerts}</div>
+                <div className="text-micro text-gray-600">Alertas activas</div>
               </div>
             </div>
 
             {/* Consejo del día */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 mb-6 border border-green-200">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+            <div className="gradient-soft rounded-[22px] p-5 border border-emerald-200/60 shadow-sm">
+              <div className="flex items-start gap-3.5">
+                <div className="icon-modern bg-emerald-600">
                   <Package className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                    Consejo del día
-                  </h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <h3 className="font-bold text-gray-900 mb-2 text-[15px]">Consejo del día</h3>
+                  <p className="text-small text-gray-700 leading-relaxed">
                     Recuerda lavar y secar las botellas plásticas antes de reciclarlas. Esto ayuda a mantener la calidad del material reciclado y evita contaminación.
                   </p>
                 </div>
@@ -166,53 +164,46 @@ const RecyclingApp = () => {
             </div>
 
             {/* Horario del camión recolector */}
-            <div className="bg-white rounded-2xl p-5 mb-6 shadow-sm border border-gray-200">
+            <div className="modern-card">
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-14 h-14 gradient-primary rounded-[18px] flex items-center justify-center flex-shrink-0 shadow-sm">
                   <div className="text-3xl">🚛</div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 text-lg mb-1">Próxima recolección</h3>
-                  <p className="text-sm text-gray-600 mb-3">Tu zona: Quilpué, Valparaíso</p>
+                  <h3 className="font-bold text-gray-900 text-base mb-1">Próxima recolección</h3>
+                  <p className="text-small text-gray-600 mb-3.5 font-medium">Tu zona: Quilpué, Valparaíso</p>
                   
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 mb-3 border border-green-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-5 h-5 text-green-600" />
-                        <span className="font-bold text-gray-900 text-xl">MARTES</span>
+                  <div className="gradient-soft rounded-[18px] p-4 mb-3.5 border border-emerald-200/60">
+                    <div className="flex items-center justify-between mb-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <Calendar className="w-5 h-5 text-emerald-600" />
+                        <span className="font-bold text-gray-900 text-lg">MARTES</span>
                       </div>
-                      <div className="bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                      <div className="badge-emerald">
                         En 2 días
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-700">
+                    <div className="flex items-center gap-2 text-small text-gray-700">
                       <Clock className="w-4 h-4 text-gray-500" />
                       <span className="font-medium">Horario: 8:00 - 21:00</span>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <p className="text-sm font-semibold text-gray-900">Materiales a recolectar:</p>
-                    <div className="space-y-1.5">
-                      <div className="flex items-start gap-2">
+                  <div className="space-y-2.5">
+                    <p className="text-small font-bold text-gray-900">Materiales a recolectar:</p>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2.5">
                         <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-1.5 flex-shrink-0"></div>
                         <div>
-                          <p className="text-sm font-medium text-gray-800">Papel y Cartón</p>
+                          <p className="text-small font-semibold text-gray-800">Papel y Cartón</p>
                           <p className="text-xs text-gray-600">Papeles, cartones, hojas de impresora</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2.5">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
                         <div>
-                          <p className="text-sm font-medium text-gray-800">Envases Livianos</p>
+                          <p className="text-small font-semibold text-gray-800">Envases Livianos</p>
                           <p className="text-xs text-gray-600">Botellas plásticas, frascos, envases de alimentos</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-800">Vidrio</p>
-                          <p className="text-xs text-gray-600">Botellas y frascos de vidrio</p>
                         </div>
                       </div>
                     </div>
@@ -566,21 +557,21 @@ const RecyclingApp = () => {
 
         {activeTab === 'guia' && (
           <div>
-            <div className="bg-white rounded-2xl shadow-lg p-4 border-l-4 border-emerald-500 mb-6">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[22px] p-5 mb-5 border border-emerald-200/60 border-l-4 border-l-emerald-600 shadow-sm">
+              <div className="flex items-start gap-3.5">
+                <div className="w-11 h-11 bg-emerald-600 rounded-[14px] flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Info size={20} className="text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 mb-1">Tutorial inicial</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <h3 className="font-bold text-gray-900 mb-1.5 text-[15px]">Tutorial inicial</h3>
+                  <p className="text-[13px] text-gray-700 leading-relaxed">
                     Selecciona un tipo de material para ver ejemplos detallados, consejos de preparación y qué hacer o no hacer al reciclar.
                   </p>
                 </div>
               </div>
             </div>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Tipos de materiales</h3>
+            <h3 className="text-base font-bold text-gray-900 mb-4">Tipos de materiales</h3>
 
             <div className="space-y-3">
               {guideCategories.map((category) => {
@@ -595,18 +586,18 @@ const RecyclingApp = () => {
                 const Icon = iconMap[category.id];
                 
                 return (
-                  <div key={category.id} className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                  <div key={category.id} className="bg-white rounded-[22px] shadow-sm border border-gray-100 overflow-hidden">
                     <button
                       onClick={() => setExpandedCategory(isExpanded ? null : category.id)}
                       className="w-full p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors"
                     >
-                      <div className={`w-16 h-16 ${category.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md`}>
+                      <div className={`w-16 h-16 ${category.color} rounded-[18px] flex items-center justify-center flex-shrink-0 shadow-sm`}>
                         <Icon size={32} className="text-white" />
                       </div>
                       
                       <div className="flex-1 text-left">
-                        <h3 className="font-bold text-gray-900 text-lg mb-1">{category.name}</h3>
-                        <p className="text-sm text-gray-500">{category.steps.length} pasos</p>
+                        <h3 className="font-bold text-gray-900 text-base mb-0.5">{category.name}</h3>
+                        <p className="text-[13px] text-gray-600">{category.steps.length} pasos</p>
                       </div>
 
                       <ChevronRight 
@@ -664,33 +655,33 @@ const RecyclingApp = () => {
 
         {activeTab === 'alertas' && (
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <Bell className="w-6 h-6 text-green-600" />
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[22px] p-5 mb-5 border border-emerald-200/60 shadow-sm">
+              <div className="flex items-center gap-3.5 mb-1">
+                <div className="w-11 h-11 bg-emerald-100 rounded-[14px] flex items-center justify-center flex-shrink-0">
+                  <Bell className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800">Alertas y Notificaciones</h2>
-                  <p className="text-sm text-gray-500">Mantente informado sobre el estado de los contenedores</p>
+                  <h2 className="text-xl font-bold text-gray-900">Alertas y Notificaciones</h2>
+                  <p className="text-[13px] text-gray-600 font-medium">Mantente informado sobre el estado de los contenedores</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-5 mb-6 shadow-sm border border-gray-200">
+            <div className="bg-white rounded-[22px] p-5 mb-5 shadow-sm border border-gray-100">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <Bell className="w-5 h-5 text-green-600" />
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 bg-emerald-50 rounded-[14px] flex items-center justify-center flex-shrink-0">
+                    <Bell className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">Notificaciones automáticas</h3>
-                    <p className="text-sm text-gray-500">Recibe alertas cuando los contenedores estén llenos</p>
+                    <h3 className="font-bold text-gray-900 text-[15px]">Notificaciones automáticas</h3>
+                    <p className="text-[13px] text-gray-600">Recibe alertas cuando los contenedores estén llenos</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setNotifications(!notifications)}
-                  className={`relative w-14 h-8 rounded-full transition-colors ${
-                    notifications ? 'bg-green-500' : 'bg-gray-300'
+                  className={`relative w-14 h-8 rounded-full transition-colors shadow-sm ${
+                    notifications ? 'bg-emerald-600' : 'bg-gray-300'
                   }`}
                 >
                   <div
@@ -703,13 +694,13 @@ const RecyclingApp = () => {
             </div>
 
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-800">
+              <h3 className="text-base font-bold text-gray-900">
                 Alertas activas ({activeAlerts})
               </h3>
               {activeAlerts > 0 && (
                 <button 
                   onClick={handleMarkAllAsRead}
-                  className="text-green-600 font-semibold text-sm hover:text-green-700 transition-colors"
+                  className="text-emerald-600 font-semibold text-[13px] hover:text-emerald-700 transition-colors"
                 >
                   Marcar todas como leídas
                 </button>

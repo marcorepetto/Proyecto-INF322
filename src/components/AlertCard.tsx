@@ -25,7 +25,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({ alert, onMarkAsRead, onCoo
   const { icon: Icon, bg, border, iconBg, iconColor } = getIconAndColor();
 
   return (
-    <div className={`${bg} ${border} border-2 rounded-2xl p-5 mb-4 hover:shadow-md transition-all`}>
+    <div className={`${bg} ${border} border-2 rounded-2xl p-5 mb-4 hover:shadow-md transition-all ${alert.status === 'nuevo' ? 'pop-in' : ''}`}>
       <div className="flex items-start gap-4">
         <div className={`w-12 h-12 ${iconBg} rounded-full flex items-center justify-center flex-shrink-0`}>
           <Icon className={`w-6 h-6 ${iconColor}`} />
@@ -36,7 +36,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({ alert, onMarkAsRead, onCoo
             <h3 className="font-bold text-gray-800 text-lg">{alert.title}</h3>
             <div className="flex items-center gap-2">
               {alert.status === 'nuevo' && (
-                <span className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="status-label new">
                   Nuevo
                 </span>
               )}
@@ -65,7 +65,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({ alert, onMarkAsRead, onCoo
           {(alert.type === 'urgent' || alert.type === 'warning') && (
             <button 
               onClick={() => onCoordinate(alert)}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full flex items-center gap-2 transition-colors"
+              className="btn flex items-center gap-2"
             >
               <MapPin className="w-4 h-4" />
               Coordinar retiro
